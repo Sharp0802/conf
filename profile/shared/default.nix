@@ -8,6 +8,7 @@
     ./polkit.nix
     ./seatd.nix
     ./secret.nix
+    ./shell.nix
     ./tz.nix
     ./virt.nix
   ];

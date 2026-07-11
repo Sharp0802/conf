@@ -4,7 +4,7 @@
   };
 
   outputs =
-    { nixpkgs }:
+    { nixpkgs, ... }:
     let
       lib = nixpkgs.lib;
       makeSystem =
@@ -17,10 +17,10 @@
         lib.nixosSystem {
           modules = [
             ./hardware-configuration.nix
-            (import ./profile profile)
-            (import ./dev device)
-            (import ./app apps)
-            (import ./user users)
+            ((import ./profile) profile)
+            ((import ./dev) device)
+            ((import ./app) apps)
+            ((import ./user) users)
           ];
         };
     in
