@@ -6,7 +6,7 @@
     config = [
       {
         init.defaultBranch = "main";
-        credential.helper = "store";
+        credential.helper = "oo7";
         pull.rebase = true;
         rebase.autoStash = true;
         rerere.enabled = true;
