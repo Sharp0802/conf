@@ -11,6 +11,7 @@ let
     man
     media
     nvim
+    vpn
     zed
   ];
 in
