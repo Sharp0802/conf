@@ -1,10 +1,13 @@
 { ... }:
 {
   imports = [
+    ./overlay
+
     ./boot.nix
     ./firewall.nix
     ./interop.nix
     ./net.nix
+    ./nix.nix
     ./polkit.nix
     ./seatd.nix
     ./secret.nix
