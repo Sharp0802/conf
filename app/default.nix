@@ -1,5 +1,5 @@
 apps:
 { ... }:
 {
-  imports = map (app: ./. + app) apps;
+  imports = map (app: ./. + "${app}.nix") apps;
 }

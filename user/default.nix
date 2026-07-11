@@ -1,5 +1,5 @@
 users:
 { ... }:
 {
-  imports = map (user: ./. + user) users;
+  imports = map (user: ./. + "${user}.nix") users;
 }
