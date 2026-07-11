@@ -1,9 +1,10 @@
+{ lib, ... }:
 let
   args = {
-    app = import ../app;
-    dev = import ../dev;
-    profile = import ../profile;
-    user = import ../user;
+    app = import ../app { inherit lib; };
+    dev = import ../dev { inherit lib; };
+    profile = import ../profile { inherit lib; };
+    user = import ../user { inherit lib; };
   };
 in
 {

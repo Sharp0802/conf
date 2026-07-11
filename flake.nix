@@ -7,7 +7,7 @@
     { nixpkgs, ... }:
     let
       lib = nixpkgs.lib;
-      host = import ./host;
+      host = import ./host { inherit lib; };
     in
     {
       nixosConfigurations.laptop = lib.nixosSystem host.laptop;
