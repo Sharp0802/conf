@@ -1,23 +1,11 @@
-profile:
 { lib, ... }:
-{
-  imports = [
-    ./overlay
-    ./shared
-    (./. + "/${profile}")
-  ];
-
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "steam"
-      "steam-unwrapped"
-      "nvidia-x11"
-      "nvidia-settings"
-    ];
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-}
+let
+  entries = builtins.readDir ./.;
+  dirs = builtins.filter (file: file != "default.nix") (builtins.attrNames entries);
+in
+builtins.listToAttrs (
+  map (dir: {
+    name = lib.removeSuffix ".nix" dir;
+    value = ./. + "/${dir}";
+  }) dirs
+)
