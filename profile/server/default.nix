@@ -2,6 +2,8 @@
 {
   imports = [
     ../shared
+
+    ./sshd
   ];
 
   # no sleep
