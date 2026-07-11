@@ -5,7 +5,7 @@
     settings = {
       SOUND_POWER_SAVE_ON_AC = 0;
       SOUND_POWER_SAVE_ON_BAT = 0;
-      SOUND_POWER_SAVE_CONTROLER = false;
+      SOUND_POWER_SAVE_CONTROLLER = false;
     };
   };
 }
