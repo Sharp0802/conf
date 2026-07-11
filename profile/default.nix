@@ -4,7 +4,7 @@ profile:
   imports = [
     ./overlay
     ./shared
-    (./. + profile)
+    (./. + "/${profile}")
   ];
 
   nixpkgs.config.allowUnfreePredicate =
