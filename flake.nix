@@ -7,44 +7,10 @@
     { nixpkgs, ... }:
     let
       lib = nixpkgs.lib;
-      makeSystem =
-        {
-          profile,
-          device,
-          apps,
-          users,
-        }:
-        lib.nixosSystem {
-          modules = [
-            ./hardware-configuration.nix
-            ((import ./profile) profile)
-            ((import ./dev) device)
-            ((import ./app) apps)
-            ((import ./user) users)
-          ];
-        };
+      host = import ./host;
     in
     {
-      nixosConfigurations.laptop = makeSystem {
-        profile = "desktop";
-        device = "LEN-16AFR10-83F2";
-        apps = [
-          "game"
-          "git"
-          "nvim"
-          "zed"
-        ];
-        users = [ "sharp0802" ];
-      };
-
-      nixosConfigurations.server = makeSystem {
-        profile = "server";
-        device = "MSI-CX62-6QD";
-        apps = [ ];
-        users = [
-          "sharp0802"
-          "seocaf2"
-        ];
-      };
+      nixosConfigurations.laptop = lib.nixosSystem host.laptop;
+      nixosConfigurations.server = lib.nixosSystem host.server;
     };
 }
