@@ -8,6 +8,8 @@ let
   apps = with app; [
     game
     git
+    man
+    media
     nvim
     zed
   ];

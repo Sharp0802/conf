@@ -12,7 +12,6 @@
   ];
 
   programs.dwl.enable = true;
-  programs.firefox.enable = true;
   programs.foot.enable = true;
 
   programs.dconf = {
@@ -29,6 +28,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    brightnessctl
     nautilus
     pwvucontrol
     wofi

@@ -7,6 +7,7 @@
 let
   apps = with app; [
     git
+    man
     nvim
   ];
 in
