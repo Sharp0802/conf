@@ -1,7 +1,7 @@
 final: prev:
 let
   mkComponent =
-    { pname, hash }:
+    { pname }:
     final.stdenv.mkDerivation {
       inherit pname;
       version = "main";
@@ -10,7 +10,7 @@ let
         owner = "linux-credentials";
         repo = "oo7";
         rev = "main";
-        inherit hash;
+        hash = "sha256-AIvGbfmN0fUsm63kFO8WETUmuR1YTWLwMKuaxRL7eho=";
       };
 
       nativeBuildInputs = with prev; [
@@ -37,10 +37,8 @@ in
 {
   git-credential-oo7 = mkComponent {
     pname = "git-credential-oo7";
-    hash = prev.lib.fakeHash;
   };
   cargo-credential-oo7 = mkComponent {
     pname = "cargo-credential-oo7";
-    hash = prev.lib.fakeHash;
   };
 }
