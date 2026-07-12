@@ -11,6 +11,8 @@
   };
 
   environment.systemPackages = with pkgs; [
+    cargo-credential-oo7
+    git-credential-oo7
     libsecret
   ];
 }
