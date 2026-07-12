@@ -3,7 +3,7 @@
   imports = [
     ../shared
 
-    ./sshd
+    ./sshd.nix
   ];
 
   # no sleep
