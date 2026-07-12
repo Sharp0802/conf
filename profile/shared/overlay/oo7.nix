@@ -1,8 +1,8 @@
-final: prev:
+final: _prev:
 let
   mkComponent =
     { pname }:
-    final.stdenv.mkDerivation {
+    final.rustPlatform.buildRustPackage {
       inherit pname;
       version = "main";
 
@@ -13,23 +13,18 @@ let
         hash = "sha256-AIvGbfmN0fUsm63kFO8WETUmuR1YTWLwMKuaxRL7eho=";
       };
 
-      nativeBuildInputs = with prev; [
-        cargo
-        rustc
-      ];
+      cargoHash = "sha256-UFExipKWK0BSBbQTDT5h09XyeH4NIeWVjlUpS4SNvdA=";
 
-      RUSTFLAGS = "-C target-cpu=native -C lto";
+      RUSTFLAGS = "-C target-cpu=native";
+      CARGO_PROFILE_RELEASE_LTO = "true";
 
-      buildPhase = ''
-        runHook preBuild
-        cargo build -p ${pname} --release
-        runHook postBuild
-      '';
+      cargoBuildFlags = [ "-p=${pname}" ];
+      doCheck = false;
 
       installPhase = ''
         runHook preInstall
         mkdir -p $out/bin
-        cp target/release/${pname} $out/bin
+        cp target/${final.stdenv.hostPlatform.rust.rustcTarget}/release/${pname} $out/bin
         runHook postInstall
       '';
     };
