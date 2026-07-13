@@ -11,8 +11,10 @@
   };
 
   environment.systemPackages = with pkgs; [
+    oo7
+    oo7-portal
+    oo7-server
     cargo-credential-oo7
     git-credential-oo7
-    libsecret
   ];
 }
