@@ -20,15 +20,7 @@
       end
     })
 
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = "rust",
-      callback = function(ev)
-        vim.opt.cc = "100"
-      end
-    })
-
     vim.lsp.enable('nixd');
-    vim.lsp.enable('rust-analyzer');
   '';
 
   environment.systemPackages = with pkgs; [
