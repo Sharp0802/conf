@@ -6,6 +6,7 @@
 }:
 let
   apps = with app; [
+    direnv
     game
     git
     man
