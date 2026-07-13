@@ -16,8 +16,8 @@
   };
   
   services.udev.extraRules = ''
-    SUBSYSTEM=="drm", KERNEL=="card[0-9]*", KERNELS="0000:00:02.0", SYMLINK+="dri/wlr-1"
-    SUBSYSTEM=="drm", KERNEL=="card[0-9]*", KERNELS="0000:01:00.0", SYMLINK+="dri/wlr-2"
+    SUBSYSTEM=="drm", KERNEL=="card[0-9]*", KERNELS=="0000:00:02.0", SYMLINK+="dri/wlr-1"
+    SUBSYSTEM=="drm", KERNEL=="card[0-9]*", KERNELS=="0000:01:00.0", SYMLINK+="dri/wlr-2"
   '';
 
   environment.variables = {
