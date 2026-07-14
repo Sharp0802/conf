@@ -9,6 +9,7 @@ let
     direnv
     game
     git
+    isolcpu
     man
     media
     nvim
