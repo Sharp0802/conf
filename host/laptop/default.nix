@@ -13,6 +13,7 @@ let
     man
     media
     nvim
+    shikane
     vpn
     zed
   ];
