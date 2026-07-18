@@ -9,7 +9,9 @@
     wantedBy = ["default.target"];
     serviceConfig = {
       ExecStart = "${lib.getExe pkgs.shikane}";
-      Restart = "on-failure";
+      # it exits with 0 even if it failed to find wayland socket.
+      # since dwl session starts from tty, 'always' is needed.
+      Restart = "always";
       RestartSec = "1";
     };
   };
