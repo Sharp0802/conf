@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   imports = [
     ../shared
@@ -25,6 +25,16 @@
         };
       }
     ];
+  };
+
+  programs.uwsm = {
+    enable = true;
+    waylandCompositors = {
+      dwl = {
+        prettyName = "dwl";
+        binPath = "${lib.getExe pkgs.dwl}";
+      };
+    };
   };
 
   environment.systemPackages = with pkgs; [
