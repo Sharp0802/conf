@@ -1,4 +1,14 @@
 { pkgs, lib, ... }:
+let
+  dwlUwsmStartup = pkgs.writeShellScript "dwl-uwsm-startup" ''
+    exec <&-
+    exec ${lib.getExe pkgs.uwsm} finalize
+  '';
+
+  dwlUwsm = pkgs.writeShellScript "dwl-uwsm" ''
+    exec ${lib.getExe pkgs.dwl} -s ${dwlUwsmStartup}
+  '';
+in
 {
   imports = [
     ../shared
@@ -32,7 +42,7 @@
     waylandCompositors = {
       dwl = {
         prettyName = "dwl";
-        binPath = "${lib.getExe pkgs.dwl}";
+        binPath = "${dwlUwsm}";
       };
     };
   };
