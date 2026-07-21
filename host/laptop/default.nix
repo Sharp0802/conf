@@ -6,6 +6,7 @@
 }:
 let
   apps = with app; [
+    bluetooth
     direnv
     game
     git
