@@ -47,6 +47,10 @@ in
     };
   };
 
+  services.displayManager.ly = {
+    enable = true;
+  };
+
   environment.systemPackages = with pkgs; [
     brightnessctl
     nautilus
