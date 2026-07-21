@@ -42,13 +42,10 @@ in
     waylandCompositors = {
       dwl = {
         prettyName = "dwl";
+        comment = "DWL managed by UWSM";
         binPath = "${dwlUwsm}";
       };
     };
-  };
-
-  services.displayManager.ly = {
-    enable = true;
   };
 
   environment.systemPackages = with pkgs; [
