@@ -22,7 +22,7 @@ let
   '';
 
   dwlUwsm = pkgs.writeShellScript "dwl-uwsm" ''
-    ${dwlStatus} exec ${lib.getExe pkgs.dwl} -s ${dwlUwsmStartup}
+    ${dwlStatus} | exec ${lib.getExe pkgs.dwl} -s ${dwlUwsmStartup}
   '';
 in
 {
