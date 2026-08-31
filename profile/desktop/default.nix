@@ -5,8 +5,24 @@ let
     exec ${lib.getExe pkgs.uwsm} finalize
   '';
 
+  dwlStatus =
+  let
+    cat = "${pkgs.coreutils}/bin/cat";
+    date = "${pkgs.coreutils}/bin/date";
+    printf = "${pkgs.coreutils}/bin/printf";
+    sleep = "${pkgs.coreutils}/bin/sleep";
+  in
+  pkgs.writeShellScript "dwl-status" ''
+    while true; do
+      bat="$(${cat} /sys/class/power_supply/BAT0/capacity)"
+      dat="$(${date} +'%F %T')"
+      ${printf} 'BAT %s%% | %s\n' "$bat" "$dat"
+      ${sleep} 1
+    done
+  '';
+
   dwlUwsm = pkgs.writeShellScript "dwl-uwsm" ''
-    exec ${lib.getExe pkgs.dwl} -s ${dwlUwsmStartup}
+    ${dwlStatus} exec ${lib.getExe pkgs.dwl} -s ${dwlUwsmStartup}
   '';
 in
 {
