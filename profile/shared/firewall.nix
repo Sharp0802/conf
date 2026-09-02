@@ -25,5 +25,6 @@
   networking.firewall = {
     enable = true;
     backend = "nftables";
+    trustedInterfaces = [ "virbr0" ];
   };
 }
