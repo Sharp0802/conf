@@ -34,6 +34,7 @@ in
     ./input.nix
     ./nm.nix
     ./tlp.nix
+    ./vm.nix
     ./xdg.nix
   ];
 
