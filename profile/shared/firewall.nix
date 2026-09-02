@@ -9,6 +9,7 @@
           type filter hook input priority 0; policy drop;
 
           iif lo accept
+          iifname "virbr0" accept
 
           ct state {established, related} accept
 
