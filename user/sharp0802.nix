@@ -7,6 +7,8 @@
       "wheel"
       "seat"
       "podman"
+      "libvirtd"
+      "kvm"
     ];
   };
 }
