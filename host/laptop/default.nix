@@ -15,6 +15,7 @@ let
     media
     nvim
     shikane
+    unity
     vpn
     zed
   ];
