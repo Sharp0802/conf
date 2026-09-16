@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  unityhub = unityhub.override {
+  unityhub = pkgs.unityhub.override {
     extraLibs = p: [
       p.ncurses
     ];
