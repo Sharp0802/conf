@@ -1,10 +1,14 @@
 { pkgs, ... }:
+let
+  unityhub = unityhub.override {
+    extraLibs = p: [
+      p.ncurses
+    ];
+  };
+in
 {
-  environment.systemPackages = with pkgs; [
-    (unityhub.override {
-      extraLibs = p: [
-        p.ncurses
-      ];
-    })
+  environment.systemPackages = [
+    unityhub
+    unityhub.fhsEnv
   ];
 }
