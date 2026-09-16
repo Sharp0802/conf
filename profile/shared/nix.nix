@@ -8,6 +8,7 @@
       "nvidia-x11"
       "nvidia-settings"
       "unityhub"
+      "corefonts"
     ];
 
   nix.settings.experimental-features = [
