@@ -4,6 +4,9 @@ let
     extraLibs = p: [
       p.ncurses
     ];
+    extraPkgs = p: [
+      p.ncurses
+    ];
   };
 in
 {
