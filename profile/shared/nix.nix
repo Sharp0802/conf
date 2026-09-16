@@ -7,6 +7,7 @@
       "steam-unwrapped"
       "nvidia-x11"
       "nvidia-settings"
+      "unityhub"
     ];
 
   nix.settings.experimental-features = [
